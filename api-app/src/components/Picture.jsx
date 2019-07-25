@@ -3,11 +3,11 @@ import React from 'react';
 const Picture = (props) => {
     console.log("second props", props.data)
     return ( 
-        <div>
+        <div className="pictures">
             {props.data.map((pic, i) => {
                 return <div key={i}>
-                    <img src={pic.url} alt="unsplash pic"></img>
-                    <p>{pic.author}</p>
+                    <img src={pic.images.downsized_medium.url} alt="unsplash pic"></img>
+                    
                 </div>
             })}
         </div>

@@ -9,10 +9,10 @@ export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE'
 export const fetchData = () => dispatch => {
     dispatch({ type: FETCH_DATA_START})
     axios
-        .get(`https://cors-anywhere.herokuapp.com/https://picsum.photos/v2/list?&limit=10`)
+        .get(`https://cors-anywhere.herokuapp.com/http://api.giphy.com/v1/gifs/search?q=cats&api_key=P8No5d6CdRkffph6a2z61WPU9FFmXpyY&limit=10`)
         .then(response => {
-            console.log(response)
-            dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data})
+            console.log(response.data)
+            dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data.data})
         })
         .catch(err => console.log(err.response))
 }

@@ -22,7 +22,7 @@ const Pictures = (props) => {
     }
 
     return ( 
-        <div>
+        <div className="pictures">
             {/* <p>{props.picture.map((pic, i) => {
                 return <div key={i}>
                     <img src={pic.url} alt="unsplash pic"></img>
