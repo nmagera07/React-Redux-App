@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import Picture from '../components/Picture'
 
-import { fetchData } from '../store/actions'
+import { fetchData, fetchSearchData } from '../store/actions'
+
+import { Form } from 'semantic-ui-react'
 
 const Pictures = (props) => {
     console.log('props', props.picture)
-    const [pictures, setPictures] = useState()
+    const [formInput, setFormInput] = useState({text: ''})
 
-    const getPictures = e => {
+    const searchData = (e) => {
         e.preventDefault()
-        props.fetchData()
+        setFormInput({ text: ''})
+        props.fetchSearchData(formInput.text)
+    }
+
+    const handleChanges = e => {
+        setFormInput({ [e.target.name]: e.target.value })
     }
 
     useEffect(() => {
@@ -20,7 +27,7 @@ const Pictures = (props) => {
     if (props.isFetching) {
        return <h2>Loading...</h2>
     }
-
+    console.log(formInput)
     return ( 
         <div className="pictures">
             {/* <p>{props.picture.map((pic, i) => {
@@ -29,6 +36,14 @@ const Pictures = (props) => {
                     <p>{pic.author}</p>
                 </div>
             })}</p> */}
+            <Form onSubmit={searchData}> 
+                <input
+                    placeholder="Search for gifs"
+                    name="text"
+                    onChange={handleChanges}
+                    value={formInput.text}
+                />
+            </Form>
             <Picture data={props.picture} />
         </div>
      );
@@ -45,5 +60,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchData }
+    { fetchData , fetchSearchData}
 )(Pictures)

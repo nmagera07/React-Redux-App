@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
+/* html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+/* article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -45,12 +45,21 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+} */
+
+
+
+.App {
+  background-color: black;
 }
 
-.pictures {
+.nav {
+  height: 75px;
   display: flex;
-  justify-content: space-evenly;
-  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* background: black; */
 }
 
 img {
@@ -59,21 +68,20 @@ img {
   border-radius: 10px;
 }
 
-.nav {
-  /* background: blue; */
-  height: 75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-nav h1 {
-  font-size: 30px;
-}
-
-body {
-  background: black;
-  max-width: 1000px;
+.pictures {
+  width: 1000px;
   margin: 0 auto;
+  
+}
+
+.picture {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  margin-top: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: white;
 }
